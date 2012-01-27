@@ -10,9 +10,12 @@
 
 	<script>
 	$(document).ready(function(){
+		// Generate some images with empty src attributes. The tags need to have width and height attributes set.
 		for (var i=0;i<10;i++){
 			$('#content').append("<img src='' alt'' width="+Math.floor(Math.random()*500+50)+" height="+Math.floor(Math.random()*500+50)+">");
 		}
+		
+		// jQuery Placehold looks for all img tags with empty src attributes and adds an URL to placehold.it 
 		$(document).placehold();
 	});	
 </script>
