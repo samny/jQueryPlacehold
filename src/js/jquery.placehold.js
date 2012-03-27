@@ -1,5 +1,5 @@
 /*
- * Placehold, A plugin for jQuery which replaces empty image sources with dummy images
+ * jQuery Placehold, A plugin for jQuery which replaces empty image sources with dummy images
  *
  * Supports color.js for color-schemes (https://github.com/brehaut/color-js)
  *
@@ -40,7 +40,6 @@
 
 
     $.fn["placehold"] = function (options) {
-        console.log(this);
 
         var settings = $.extend({
             "colors":[],
@@ -159,7 +158,6 @@
                                 url = generateCanvasImage(w, h, color);
                             } else if (settings["fallbackImage"]) {
                                 url = settings["fallbackImage"] + "?c=" + color.substr(1) + "&w=" + w + "&h=" + h;
-                                console.log()
                             }
                             $(el).attr("src", url);
                             if (attrDataSrc !== undefined) {
