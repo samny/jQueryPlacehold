@@ -6,14 +6,17 @@
 	<div id="content"></div>
 
 	<script src="js/libs/jquery-1.7.1.min.js"></script>
+	<script src="js/libs/color.js"></script>
 	<script src="js/jquery.placehold.min.js"></script>
 
 	<script>
 	$(document).ready(function(){
 		for (var i=0;i<10;i++){
-			$('#content').append("<img src='' alt'' width="+Math.floor(Math.random()*500+50)+" height="+Math.floor(Math.random()*500+50)+">");
+			$("#content").append("<img src='' alt'' width="+Math.floor(Math.random()*500+50)+" height="+Math.floor(Math.random()*500+50)+">");
 		}
-		$(document).placehold({useCanvas:true});
+
+		$(this).placehold({});
+
 	});	
 </script>
 </body>
