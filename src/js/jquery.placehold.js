@@ -59,7 +59,7 @@
              * getRandomHexColor
              * @return {string}
              */
-                getRandomHexColor = function () {
+            getRandomHexColor = function () {
                 var x = Math.round((Math.random() * 0xffffff)), y, z, z1;
                 x = x.toString(16);
                 y = (6 - x.length);
@@ -76,7 +76,7 @@
              *  @param {number} lum
              *  @return {string}
              */
-                colorLuminance = function (hex, lum) {
+            colorLuminance = function (hex, lum) {
                 var rgb = "#", c, i;
                 // validate hex string
                 hex = String(hex).replace(/[^0-9a-f]/gi, "");
@@ -101,7 +101,8 @@
              * @param {(string|number)} color
              * @return {string}
              */
-                generateCanvasImage = function (w, h, color) {
+            generateCanvasImage = function (w, h, color) {
+
                 var canvas, context, text, textSize, fontSize, textColor, url = null;
                 canvas = document.createElement("canvas");
                 if (canvas !== undefined) {
@@ -143,14 +144,19 @@
              * setSources
              * @param {(Array)} colors
              */
-                setSources = function (colors) {
+            setSources = function (colors) {
+
+
                 var numColors = colors.length, w, h, url, color;
 
                 this.each(function (i, el) {
+
                     var attrSrc = $(el).attr("src"), attrDataSrc = $(el).attr("data-src");
-                    if (attrSrc === "" || attrDataSrc === "" || settings.replaceAll === true) {
+                    if (typeof attrSrc === 'undefined' || typeof attrDataSrc === 'undefined' || settings.replaceAll === true) {
+
                         w = $(el).attr("width");
                         h = $(el).attr("height");
+
 
                         if (w !== undefined && h !== undefined) {
                             color = colors[i % numColors];
@@ -169,6 +175,7 @@
             };
 
         return this.each(function () {
+
             var $this = $(this), $images, l, i, c, color, colors = settings["colors"] , Color, useScheme = settings["useScheme"];
 
             try {
@@ -195,16 +202,15 @@
                     }
                 }
             } else if (!colors || colors.length === 0) {
+
                 colors = [];
                 for (i = 0; i < l; i++) {
                     color = getRandomHexColor();
                     colors.push(color);
                 }
             }
-
             setSources.call($images, colors);
         });
 
     };
 }(jQuery));
-
